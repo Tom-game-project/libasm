@@ -1,5 +1,6 @@
 SRC=\
-	test_asm.s
+	test_asm.s \
+	ft_strlen.s
 
 OBJ = $(SRC:.s=.o)
 
@@ -13,6 +14,7 @@ CC=cc
 NASM=nasm
 AR=ar
 RM=rm -f
+QEMU=qemu
 
 all: $(NAME)
 
@@ -21,6 +23,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(AR) rcs $@ $^
+
+# qemuで実行
+run: 
 
 test: $(TESTC) $(NAME)
 	$(CC) $(TESTC) $(NAME) -o $(TEST_OUT)
