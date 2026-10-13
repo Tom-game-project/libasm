@@ -13,12 +13,11 @@
 ## 命令
 
 - `MOV a, b`
-  *a = b
-  `MOV a, [b]`
-  *a = &b
-  `MOV [a], b`
   a = b
-
+  `MOV a, [b]`
+  a = *b
+  `MOV [a], b`
+  *a = b
 
 ## データのサイズ
 
@@ -33,3 +32,5 @@
 # 呼び出し規約
 
 https://azelpg.gitlab.io/azsky2/note/prog/asm64/22_systemv.html
+
+https://gitlab.com/x86-psABIs/x86-64-ABI
