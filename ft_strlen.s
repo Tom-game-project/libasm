@@ -23,4 +23,3 @@ ft_strlen:
     .break
     ret
 
-
