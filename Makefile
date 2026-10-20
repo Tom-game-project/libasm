@@ -4,7 +4,15 @@ SRC=\
 
 OBJ = $(SRC:.s=.o)
 
+MODE ?= debug
+
 NAME=libasm.a
+
+ifeq ($(MODE), release)
+	CFLAGS :=
+else
+	CFLAGS := -g
+endif
 
 TESTC=test.c
 TEST_OUT=test_exe
@@ -14,7 +22,8 @@ CC=cc
 NASM=nasm
 AR=ar
 RM=rm -f
-QEMU=qemu
+QEMU=qemu-system-x86_64
+GDB=gdb
 
 all: $(NAME)
 
@@ -26,9 +35,10 @@ $(NAME): $(OBJ)
 
 # qemuで実行
 run: 
+	$(QEMU) 
 
 test: $(TESTC) $(NAME)
-	$(CC) $(TESTC) $(NAME) -o $(TEST_OUT)
+	$(CC) $(CFLAGS) $(TESTC) $(NAME) -o $(TEST_OUT)
 
 clean:
 	$(RM) $(OBJ)
@@ -36,4 +46,4 @@ clean:
 fclean: clean
 	$(RM) $(NAME) $(TEST_OUT)
 
-.PHONY: test
+.PHONY: all test clean fclean run

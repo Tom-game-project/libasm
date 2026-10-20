@@ -29,8 +29,20 @@
 
 ## レジスタと呼び出し規約
 
-# 呼び出し規約
+## 呼び出し規約
 
 https://azelpg.gitlab.io/azsky2/note/prog/asm64/22_systemv.html
 
 https://gitlab.com/x86-psABIs/x86-64-ABI
+
+---
+
+## 要件の関数
+
+### ft_strlen
+
+ナイーブな実装にしたglibcの実装ではsimdを使った最適化をしている
+
+### ft_strcpy
+
+

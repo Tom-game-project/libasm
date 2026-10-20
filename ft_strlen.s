@@ -3,15 +3,6 @@ default rel
 global ft_strlen
 section .text
 
-; size_t ft_strlen(const char *s);
-
-; size_of(char *) = 64bit (8 byte) -> qword
-;
-; while (*c != '0') {
-;   eax++;
-;   c++;
-; }
-; return eax;
 ft_strlen:
     mov eax, 0        ; eax = 0
     .loop
